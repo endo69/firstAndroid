@@ -8,6 +8,8 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
@@ -15,6 +17,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
         //ここでレイアウトのidと紐付け 
         Button btn = (Button) this.findViewById(R.id.button1);  
         //イベントをセットする
@@ -25,7 +28,18 @@ public class MainActivity extends Activity {
                 Button01_OnClick();  
             }  
               
-        });  
+        });
+        
+     // テキストビューを生成
+        TextView text = new TextView(this);
+        text.setText("onCriateのタイミングで生成されます");
+         
+        LinearLayout layout = new LinearLayout(this);
+        // レイアウトにテキストビューを追加
+        layout.addView(text);
+ 
+        setContentView(layout);
+        
     }
 
     @Override
